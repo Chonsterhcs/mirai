@@ -38,12 +38,7 @@ public class MiraiConsoleGradlePlugin : Plugin<Project> {
     }
 
     private fun KotlinSourceSet.configureSourceSet(project: Project, target: KotlinTarget) {
-        try {
-            languageSettings.optIn("kotlin.RequiresOptIn")
-        } catch (e: NoSuchMethodError) {
-            @Suppress("DEPRECATION")
-            languageSettings.useExperimentalAnnotation("kotlin.RequiresOptIn")
-        }
+        languageSettings.optIn("kotlin.RequiresOptIn")
         dependencies { configureDependencies(project, this@configureSourceSet, target) }
     }
 
